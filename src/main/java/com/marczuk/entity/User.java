@@ -21,8 +21,9 @@ import java.util.List;
  */
 @Entity
 @Data
-@Table(name = "MyUser")
+@Table(name = "myUser")
 public class User {
+
     @Id
     @Email
     @NotEmpty
@@ -44,4 +45,17 @@ public class User {
         @JoinColumn(name = "USER_EMAIL", referencedColumnName = "email")
     }, inverseJoinColumns = {@JoinColumn(name = "ROLE_NAME", referencedColumnName = "name")})
     private List<Role> roles;
+
+    public User(@Email @NotEmpty String email, @NotEmpty String name, @NotEmpty @Size(min = 5) String password) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+    }
+
+    public User() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

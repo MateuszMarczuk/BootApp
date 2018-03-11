@@ -16,12 +16,11 @@ import javax.validation.constraints.NotEmpty;
  * Wojskowa Akademia Techniczna im. Jarosława Dąbrowskiego, Warszawa 08.03.2018.
  */
 @Data
-@NoArgsConstructor
 @Entity
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
     @NotEmpty
@@ -39,4 +38,13 @@ public class Task {
     @JoinColumn(name = "USER_EMIAL")
     private User user;
 
+    public Task(@NotEmpty String date, @NotEmpty String startTime, String stopTime, @NotEmpty String description) {
+        this.date = date;
+        this.startTime = startTime;
+        this.stopTime = stopTime;
+        this.description = description;
+    }
+
+    public Task() {
+    }
 }
