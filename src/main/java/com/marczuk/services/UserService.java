@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 /**
  * Created by Mateusz Marczuk
  * Wojskowa Akademia Techniczna im. Jarosława Dąbrowskiego, Warszawa 11.03.2018.
@@ -45,5 +43,12 @@ public class UserService {
 
     public User findOneByEmail(String email) {
         return userRepository.findOneByEmail(email);
+    }
+
+    public boolean isUserPresent(String email) {
+        User user = userRepository.findOneByEmail(email);
+        if (user != null ){
+            return true;
+        } return false;
     }
 }

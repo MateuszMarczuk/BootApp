@@ -16,7 +16,6 @@ import java.util.List;
  * Created by Mateusz Marczuk
  * Wojskowa Akademia Techniczna im. Jarosława Dąbrowskiego, Warszawa 08.03.2018.
  */
-@Data
 @Entity
 public class Role {
 
@@ -25,9 +24,32 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
-    public Role(String user) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public Role(String name, List<User> users) {
+        this.name = name;
+        this.users = users;
     }
 
     public Role() {
     }
+
+    public Role(String name) {
+        this.name = name;
+    }
+
 }
