@@ -33,7 +33,7 @@ public class User {
     @NotEmpty
     private String name;
 
-    @NotEmpty
+
     @Size(min = 5)
     private String password;
 
